@@ -1,0 +1,13 @@
+
+<form method="POST" action="{% url 'club:member_update' member.pk %}" enctype="multipart/form-data">
+{% comment %} {{member.id}} {{member}} {% endcomment %}
+
+    <!-- Security token -->
+    {% csrf_token %}
+ 
+    <!-- Using the formset -->
+    {{ form.as_p }}
+
+    <input type="submit" value="Submit">
+</form>
+

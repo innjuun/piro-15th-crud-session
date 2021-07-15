@@ -1,0 +1,14 @@
+
+<h1> 멤버 정보 </h1>
+<p>기수: {{member.generation}}</p>
+<p>생일: {{member.birth_date}}</p>
+<p>이메일: {{member.email}}</p>
+<p>전화 번호: {{member.phone_number}}</p>
+<p>프로필 사진:{{member.profile}}<img src={{member.profile}}></p>
+<p>자기 소개: {{member.introduction}}</p>
+
+<p>
+<a href="{% url "club:member_update" member.id %}">정보 수정하기</a>
+</p>
+<a href="{% url "club:member_delete" member.id %}">멤버 쫓아내기</a>
+<a href="{% url "club:member_list" %}">홈으로 이동</a>

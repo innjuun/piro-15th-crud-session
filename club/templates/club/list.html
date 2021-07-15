@@ -1,0 +1,28 @@
+
+<h1>동아리원 리스트</h1>
+<table style="width:100%">
+  <tr>
+    <th>id</th>
+    <th>기수</th>
+    <th>생년월일</th>
+    <th>이메일</th>
+    <th>휴대폰 번호</th>
+    <th>프로필 사진</th>
+    <th>자기소개</th>
+    <th></th>
+  </tr>
+  {% for member in members %}
+  <tr>
+    <td>{{member.id}}</td>
+    <td>{{member.generation}}</td>
+    <td>{{member.birth_date}}</td>
+    <td>{{member.email}}</td>
+    <td>{{member.phone_number}}</td>
+    <td>{{member.profile}}<img src={{member.profile}}></td>
+    <td>{{member.introduction}}</td>
+    <td><a href="{% url "club:member_read" member.id %}">자세히 보기</a></td>
+  </tr>
+{% endfor %}
+
+</table>
+<a href="{% url "club:member_create" %}">멤버 생성하기</a>
