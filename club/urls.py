@@ -1,6 +1,7 @@
 from club.views import member_create, member_delete, member_list, member_read, member_update
 from django.urls import path
-
+from django.conf.urls.static import static
+from django.conf import settings
 app_name = 'club'
 
 urlpatterns = [
@@ -9,4 +10,4 @@ urlpatterns = [
     path('members/<int:pk>/', view=member_read, name='member_read'),
     path('members/<int:pk>/update/', view=member_update, name='member_update'),
     path('members/<int:pk>/delete/', view=member_delete, name='member_delete'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

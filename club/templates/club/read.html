@@ -4,7 +4,8 @@
 <p>생일: {{member.birth_date}}</p>
 <p>이메일: {{member.email}}</p>
 <p>전화 번호: {{member.phone_number}}</p>
-<p>프로필 사진:{{member.profile}}<img src={{member.profile}}></p>
+
+<p>프로필 사진: <img src={% if member.profile %}{{ member.profile.url}} {% endif %} height="200" width="200"></p>
 <p>자기 소개: {{member.introduction}}</p>
 
 <p>
