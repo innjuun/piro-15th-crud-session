@@ -7,7 +7,6 @@
     <th>생년월일</th>
     <th>이메일</th>
     <th>휴대폰 번호</th>
-    <th>프로필 사진</th>
     <th>자기소개</th>
     <th></th>
   </tr>
@@ -18,7 +17,6 @@
     <td>{{member.birth_date}}</td>
     <td>{{member.email}}</td>
     <td>{{member.phone_number}}</td>
-    <td>{{ MEDIA_URL }}<img src={% if member.profile %}{{ member.profile.url}}{% endif %} height="200" width="200"></td>
     <td>{{member.introduction}}</td>
     <td><a href="{% url "club:member_read" member.id %}">자세히 보기</a></td>
   </tr>
