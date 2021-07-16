@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from club.forms import MemberForm
 from club.models import Member
 from django.shortcuts import redirect, render
@@ -5,8 +6,12 @@ from django.shortcuts import redirect, render
 # Create your views here.
 
 def member_list(request):
-    members = Member.objects.all()
-    context = {"members": members}
+    context = {}
+    members = Member.objects.order_by('-generation')
+    paginator = Paginator(members, 20)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context['page_obj'] = page_obj
     return render(request=request, template_name='club/list.html', context=context)
 
 def member_create(request):

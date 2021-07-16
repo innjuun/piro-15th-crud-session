@@ -1,4 +1,3 @@
-
 <h1>동아리원 리스트</h1>
 <table style="width:100%">
   <tr>
@@ -7,20 +6,34 @@
     <th>생년월일</th>
     <th>이메일</th>
     <th>휴대폰 번호</th>
-    <th>자기소개</th>
     <th></th>
   </tr>
-  {% for member in members %}
+  {% for member in page_obj %}
   <tr>
     <td>{{member.id}}</td>
     <td>{{member.generation}}</td>
     <td>{{member.birth_date}}</td>
     <td>{{member.email}}</td>
     <td>{{member.phone_number}}</td>
-    <td>{{member.introduction}}</td>
     <td><a href="{% url "club:member_read" member.id %}">자세히 보기</a></td>
   </tr>
 {% endfor %}
-
 </table>
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 <a href="{% url "club:member_create" %}">멤버 생성하기</a>
