@@ -34,7 +34,7 @@ def member_update(request, pk):
             member.generation = form.cleaned_data["generation"]
             member.birth_date = form.cleaned_data["birth_date"]
             member.email = form.cleaned_data["email"]
-            member.phone_nuumber = form.cleaned_data["phone_number"]
+            member.phone_number = form.cleaned_data["phone_number"]
             member.profile = form.cleaned_data.get("profile")
             member.introduction = form.cleaned_data.get("introduction")
             member.save()
