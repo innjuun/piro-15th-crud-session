@@ -7,7 +7,7 @@ from django.shortcuts import redirect, render
 
 def member_list(request):
     context = {}
-    members = Member.objects.order_by('-generation')
+    members = Member.objects.filter(generation__gt=11).order_by('-generation')
     paginator = Paginator(members, 20)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
