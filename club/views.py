@@ -44,6 +44,7 @@ def member_update(request, pk):
                 member.phone_number = f"{cleaned_phone_number[:3]}-{cleaned_phone_number[3:7]}-{cleaned_phone_number[7:11]}"
             else:
                 member.phone_number = cleaned_phone_number
+
             member.profile = form.cleaned_data.get("profile")
             member.introduction = form.cleaned_data.get("introduction")
             member.save()
