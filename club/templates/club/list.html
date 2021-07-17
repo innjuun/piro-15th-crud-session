@@ -6,10 +6,8 @@
     <th>생년월일</th>
     <th>이메일</th>
     <th>휴대폰 번호</th>
-<<<<<<< HEAD
     <th>자기 소개</th>
-=======
->>>>>>> origin/master
+
     <th></th>
   </tr>
   {% for member in page_obj %}
@@ -19,10 +17,7 @@
     <td>{{member.birth_date}}</td>
     <td>{{member.email}}</td>
     <td>{{member.phone_number}}</td>
-<<<<<<< HEAD
     <td>{{member.introduction|truncatechars:50}}</td>
-=======
->>>>>>> origin/master
     <td><a href="{% url "club:member_read" member.id %}">자세히 보기</a></td>
   </tr>
 {% endfor %}

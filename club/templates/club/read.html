@@ -1,4 +1,6 @@
-
+<head>
+<script src="jquery-3.5.1.min.js"></script>
+</head>
 <h1> 멤버 정보 </h1>
 <p>기수: {{member.generation}}</p>
 <p>생일: {{member.birth_date}}</p>
@@ -11,5 +13,10 @@
 <p>
 <a href="{% url "club:member_update" member.id %}">정보 수정하기</a>
 </p>
-<p><a href="{% url "club:member_delete" member.id %}">멤버 쫓아내기</a></p>
+<p>
+<form action="{% url "club:member_delete" member.id %}" method="POST" onsubmit="return confirm('정말 쫓아내시겠어요?');">
+  {% csrf_token %}
+  <input type="submit" value="멤버 삭제하기" />
+</form>
+</p>
 <p><a href="{% url "club:member_list" %}">홈으로 이동</a></p>
